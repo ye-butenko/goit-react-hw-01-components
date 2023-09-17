@@ -1,3 +1,6 @@
+import PropTypes from 'prop-types';
+
+// eslint-disable-next-line no-unused-vars
 import css from './TransactionHistory.module.scss';
 
 export const TransactionHistory = ({ items }) => {
@@ -24,4 +27,15 @@ export const TransactionHistory = ({ items }) => {
       </tbody>
     </table>
   );
+};
+
+TransactionHistory.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      type: PropTypes.string.isRequired,
+      amount: PropTypes.string.isRequired,
+      currency: PropTypes.string.isRequired,
+    }).isRequired
+  ).isRequired,
 };
